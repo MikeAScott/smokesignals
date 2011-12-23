@@ -1,6 +1,7 @@
 package com.enkida.smokesignals
 
 import org.apache.commons.lang.builder.ToStringBuilder
+
 import org.apache.commons.lang.builder.ToStringStyle
 import org.grails.taggable.Taggable
 

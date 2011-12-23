@@ -18,7 +18,6 @@ class BootStrap {
 		new Member(surname : 'Rose', forename : 'Steve', email : 'stevan.rose@gmail.com').save(failOnError : true)
 		new Member(surname : 'Scott', forename : 'Mike', email : 'mike.a.scott@sky.com').save(failOnError : true)
 		new Member(surname : 'Rose', forename : 'Cathy', email : 'cathyjrose@gmail.com').save(failOnError : true)
-//		new Member(surname : 'Hill', forename : 'Mark', email : 'mark@teos.co.uk').save(failOnError : true)
 	}
 	
 	def bootStrapTags = {

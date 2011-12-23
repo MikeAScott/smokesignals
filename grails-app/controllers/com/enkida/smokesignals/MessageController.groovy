@@ -4,9 +4,18 @@ import org.grails.taggable.Tag
 
 class MessageController {
 	
-	def memberService
+	def messageService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+	
+	def compose = {
+		[tagInstanceList : Tag.list()]
+	}
+	
+	def send = {
+		messageService.createMessagesForTagList(params)
+		redirect(action: "list", params: params)
+	}
 
     def index = {
         redirect(action: "list", params: params)
@@ -17,22 +26,7 @@ class MessageController {
         [messageInstanceList: Message.list(params), messageInstanceTotal: Message.count()]
     }
 	
-	def compose = {
-		[tagInstanceList : Tag.list()]
-	}
 	
-	def send = {
-		log.debug("******************")
-		log.debug(params)
-		
-		def memberInstanceList = memberService.findByTagList(params.tags)
-		
-		memberInstanceList.each {member ->
-			log.debug("${member}")
-		}
-		redirect(action: "compose", params: params)
-	}
-
     def create = {
         def messageInstance = new Message()
         messageInstance.properties = params
