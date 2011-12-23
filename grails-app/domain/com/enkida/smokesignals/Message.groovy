@@ -2,21 +2,24 @@ package com.enkida.smokesignals
 
 import org.apache.commons.lang.builder.ToStringBuilder
 import org.apache.commons.lang.builder.ToStringStyle
-import org.grails.taggable.Taggable
 
-class Member implements Taggable {
+class Message {
 	
-	String forename
-	String surname
-	String email
-	
+	String mailTo
+	String mailFrom
+	String subject
+	String body
+	String status
+
     static constraints = {
-		email(email : true)
+		mailTo(email : true)
+		mailFrom(email : true)
+		status(inList : ['NEW', 'SENT'])
     }
 	
 	String toString() {
 		return ToStringBuilder.reflectionToString(this,
-			ToStringStyle.MULTI_LINE_STYLE)
+            ToStringStyle.MULTI_LINE_STYLE)
 	}
 	
 }

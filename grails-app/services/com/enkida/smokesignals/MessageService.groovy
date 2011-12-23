@@ -1,17 +1,26 @@
 package com.enkida.smokesignals
 
-class MessageService implements Messager{
+class MessageService {
 
     static transactional = false
 
-	public void sendEmail(MessageContainer messageContainer) {
-			
-		sendMail {
-			to messageContainer.getTo()
-			from messageContainer.getFrom()
-			subject messageContainer.getSubject()
-			body messageContainer.getBody()
-		}
+	
+	def sendNewMessages = {
 		
+		def messageInstanceList = Message.findAllWhere(status : 'NEW')
+		log.debug("Found " + messageInstanceList.size() + " NEW Messages...")
+		
+		Message.findAllWhere(status : 'NEW').each {message ->
+			log.debug("${message}")
+//			sendMail {
+//				to message.mailTo
+//				from message.mailFrom
+//				subject message.subject
+//				body message.body
+//			}
+			message.status = 'SENT'
+			message.save()
+		}
 	}
+	
 }

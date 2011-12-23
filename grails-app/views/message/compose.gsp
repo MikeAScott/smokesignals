@@ -22,13 +22,13 @@
                 <div class="dialog">
                     <table>
                         <tbody>
-                        
+                            
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="from">from</label>
+                                    <label for="subject">Tags</label>
                                 </td>
                                 <td valign="top" class="value">
-                                    <g:textField name="from"  />
+                                    <g:select name="tags" from="${tagInstanceList}" multiple="true" />
                                 </td>
                             </tr>
                             

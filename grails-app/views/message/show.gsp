@@ -1,10 +1,10 @@
 
-<%@ page import="com.enkida.smokesignals.Member" %>
+<%@ page import="com.enkida.smokesignals.Message" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'member.label', default: 'Member')}" />
+        <g:set var="entityName" value="${message(code: 'message.label', default: 'Message')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -23,37 +23,44 @@
                     <tbody>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="member.id.label" default="Id" /></td>
+                            <td valign="top" class="name"><g:message code="message.id.label" default="Id" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: memberInstance, field: "id")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="member.email.label" default="Email" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: memberInstance, field: "email")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: messageInstance, field: "id")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="member.forename.label" default="Forename" /></td>
+                            <td valign="top" class="name"><g:message code="message.mailTo.label" default="Mail To" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: memberInstance, field: "forename")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: messageInstance, field: "mailTo")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="member.surname.label" default="Surname" /></td>
+                            <td valign="top" class="name"><g:message code="message.mailFrom.label" default="Mail From" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: memberInstance, field: "surname")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: messageInstance, field: "mailFrom")}</td>
                             
                         </tr>
-                        
+                    
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="member.tags.label" default="Tags" /></td>
+                            <td valign="top" class="name"><g:message code="message.status.label" default="Status" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: memberInstance, field: "tags")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: messageInstance, field: "status")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="message.body.label" default="Body" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: messageInstance, field: "body")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="message.subject.label" default="Subject" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: messageInstance, field: "subject")}</td>
                             
                         </tr>
                     
@@ -62,7 +69,7 @@
             </div>
             <div class="buttons">
                 <g:form>
-                    <g:hiddenField name="id" value="${memberInstance?.id}" />
+                    <g:hiddenField name="id" value="${messageInstance?.id}" />
                     <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>
